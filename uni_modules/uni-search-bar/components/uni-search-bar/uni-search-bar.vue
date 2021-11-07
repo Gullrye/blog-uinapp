@@ -235,7 +235,7 @@
 		overflow: hidden;
 		position: relative;
 		flex: 1;
-		justify-content: center;
+		justify-content: start;
 		flex-direction: row;
 		align-items: center;
 		height: $uni-searchbar-height;

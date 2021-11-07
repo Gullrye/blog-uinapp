@@ -7,7 +7,12 @@
 	 -->
   <view class="hot-tabs-container">
     <view class="hot-tabs">
-      <scroll-view scroll-x class="scroll-view">
+      <scroll-view
+        scroll-x
+        class="scroll-view"
+        :scroll-left="scrollLeft"
+        scroll-with-animation
+      >
         <view class="scroll-content">
           <view class="tab-item-box">
             <block v-for="(item, index) in tabData" :key="item.id">
@@ -16,6 +21,12 @@
                 class="tab-item"
                 @click="handleTabClick(index)"
                 :class="{ 'tab-item-active': index === activeIndex }"
+                :style="{
+                  color:
+                    activeIndex === index
+                      ? defaultConfig.activeTextColor
+                      : defaultConfig.textColor,
+                }"
                 >{{ item.label }}</view
               >
             </block>
@@ -56,9 +67,11 @@ export default {
     return {
       activeIndex: -1,
       slider: {
-        left: 0,
+        left: 15,
       },
       defaultConfig: {
+        textColor: '#333',
+        activeColor: 'red',
         underLineWidth: 24,
         underLineHeight: 2,
         underLineBgColor: 'red',
@@ -82,6 +95,8 @@ export default {
       this.slider = {
         left: this.tabList[activeIndex]._slider.left,
       }
+      // 点击时，scroll-view 进行横向滚动
+      this.scrollLeft = this.activeIndex * this.defaultConfig.underLineWidth
     },
     updateTabWidth() {
       let data = this.tabList
@@ -115,17 +130,25 @@ export default {
           this.updateTabWidth()
         }, 0)
       },
-      immediate: true
+      immediate: true,
     },
     defaultIndex: {
       // 当 defaultIndex 变化时，回调的方法
       // 设置默认 tab 为当前激活的 tab
       handler(val) {
         this.activeIndex = val
+        // swiper 切换时，滑块也滚动
+        this.tabToIndex()
       },
       // handler 回调将会在侦听开始之后被立即调用
       immediate: true,
     },
+    config: {
+      handler(val) {
+        this.defaultConfig = { ...this.defaultConfig, ...val }
+      },
+      immediate: true
+    }
   },
 }
 </script>
@@ -144,7 +167,6 @@ export default {
         display: inline-block;
         padding: 0 15px;
         text-align: center;
-        color: $uni-text-color;
       }
       .underLine {
         position: absolute;

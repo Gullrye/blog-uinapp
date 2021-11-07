@@ -35,4 +35,10 @@
   padding: 0 15px;
   margin-bottom: 8px;
 }
+.tab-sticky.data-v-41251cbc {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 999;
+}
 
