@@ -158,7 +158,12 @@ export default {
 .tab-sticky {
   position: sticky;
   position: -webkit-sticky;
-  top: 0;
   z-index: 999;
+  /* #ifndef H5 */
+  top: 0;
+  /* #endif */
+  /* #ifdef H5 */
+  top: 44px;
+  /* #endif */
 }
 </style>

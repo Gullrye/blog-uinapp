@@ -1,6 +1,6 @@
 <template>
   <view class="operate-container">
-    <view class="comment-box">
+    <view class="comment-box" @click="onCommitClick">
       <my-search placeholderText="评论..."
 			:isShowInput='false'
 			:config="{
@@ -22,11 +22,23 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
   name: 'article-operate',
   data() {
     return {}
   },
+  methods: {
+    ...mapActions('user', ['isLogin']),
+    async onCommitClick() {
+      const isLogin = await this.isLogin()
+      if (!isLogin) {
+        return
+      }
+      this.$emit('commitClick')
+    }
+  }
 }
 </script>
 

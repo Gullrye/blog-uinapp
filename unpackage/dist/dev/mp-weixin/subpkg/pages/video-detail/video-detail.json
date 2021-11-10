@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "热播详情",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "hot-video-info": "/components/hot-video-info/hot-video-info"
+  }
+}

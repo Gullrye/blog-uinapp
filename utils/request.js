@@ -1,3 +1,5 @@
+import store from "../store"
+
 // 封装请求对象
 const BASE_URL = 'https://api.imooc-blog.lgdsunday.club/api'
 
@@ -6,6 +8,9 @@ function request({ url, data, method }) {
     // uni.request 发起网络请求
     uni.request({
       url: BASE_URL + url,
+      header: {
+        Authorization: store.state.user.token
+      },
       data,
       method,
       success: ({ data, statusCode, header }) => {

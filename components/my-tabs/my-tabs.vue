@@ -147,8 +147,8 @@ export default {
       handler(val) {
         this.defaultConfig = { ...this.defaultConfig, ...val }
       },
-      immediate: true
-    }
+      immediate: true,
+    },
   },
 }
 </script>
@@ -180,4 +180,13 @@ export default {
 .tab-item-active {
   color: red !important;
 }
+/* #ifdef H5 */
+::v-deep .uni-scroll-view::-webkit-scrollbar {
+  display: none;
+}
+
+::v-deep .uni-scroll-view {
+  scrollbar-width: none;
+}
+/* #endif */
 </style>

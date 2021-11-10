@@ -34,6 +34,7 @@ import { mapMutations } from 'vuex'
 import MescrollCompMixin from '@/uni_modules/mescroll-uni/components/mescroll-uni/mixins/mescroll-comp.js'
 
 export default {
+  name: 'search-blog',
   mixins: [MescrollCompMixin],
   data: () => ({
     isShowInput: true,

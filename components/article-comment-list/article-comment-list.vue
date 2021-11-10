@@ -18,8 +18,8 @@
           use: false,
         }"
         :up="{
-        textNoMore: '-- 我也是有底线的！--'
-      }"
+          textNoMore: '-- 我也是有底线的！--',
+        }"
       >
         <view class="comment-title">全部评论</view>
         <block v-for="item in commentList" :key="item.info.commentId">
@@ -90,7 +90,9 @@ export default {
       } else {
         this.commentList = [...this.commentList, ...res.list]
       }
-      console.log(this.commentList)
+    },
+    addCommentList(data) {
+      this.commentList.unshift(data)
     },
   },
 }
@@ -106,7 +108,7 @@ export default {
 .comment-limt-container {
   .show-more {
     margin: $uni-spacing-col-lg;
-		padding-bottom: 80px;
+    padding-bottom: 80px;
     text-align: center;
     color: $uni-text-color-more;
     font-size: $uni-font-size-base;
