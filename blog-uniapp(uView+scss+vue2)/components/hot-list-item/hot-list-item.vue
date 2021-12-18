@@ -21,8 +21,8 @@
             <text class="hot-text">{{ data.views }} 热度</text>
           </view>
         </view>
-      </view></view
-    >
+      </view>
+    </view>
   </view>
 </template>
 
@@ -66,9 +66,9 @@ export default {
     box-shadow: 1px 0 5px 0 rgba(0, 0, 0, 0.1);
     .ranking-icon-wrapper {
       position: relative;
-			width: 18px;
-			height: 20px;
-			margin: 0 10px;
+      width: 18px;
+      height: 20px;
+      margin: 0 10px;
       image {
         width: 18px;
         height: 20px;
@@ -82,10 +82,10 @@ export default {
       }
     }
     .main {
-			width: 100%;
+      width: 100%;
       padding-right: 5px;
       .title {
-				width: 100%;
+        width: 100%;
         font-size: 16px;
         font-weight: 700;
         color: #000;
@@ -97,7 +97,7 @@ export default {
       .bottom-box {
         display: flex;
         justify-content: space-between;
-				padding-top: 10px;
+        padding-top: 10px;
         .author {
           font-size: 12px;
           color: #999;
@@ -124,6 +124,6 @@ export default {
   text-overflow: ellipsis;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-	word-break: break-word;
+  word-break: break-word;
 }
 </style>

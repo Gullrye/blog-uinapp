@@ -11,6 +11,7 @@
       placeholder-color="#666"
       border-color="#c9c9c9"
       disabled
+      @click="onSearchClick"
     ></u-search>
     <!-- 吸顶 tabs 栏 -->
     <u-sticky>
@@ -142,6 +143,11 @@ export default {
       // 不能写 '/subpkg/pages/search-blog/search-blog.vue'
       uni.navigateTo({ url: `/subpkg/pages/blog-detail/blog-detail?author=${item.user_name}&articleId=${item.id}` })
     },
+    onSearchClick() {
+      this.$u.route({
+        url: 'subpkg/pages/blog-search/blog-search'
+      })
+    }
   },
   created() {
     this.loadHotPage()

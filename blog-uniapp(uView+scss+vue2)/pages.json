@@ -69,6 +69,13 @@
             "navigationBarTitleText": "文章详情",
             "enablePullDownRefresh": false
           }
+        },
+        {
+          "path": "pages/blog-search/blog-search",
+          "style": {
+            "navigationBarTitleText": "文章搜索",
+            "enablePullDownRefresh": false
+          }
         }
       ]
     }
