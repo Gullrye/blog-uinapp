@@ -1,7 +1,7 @@
 <template>
-  <div class="login-page">
+  <view class="login-page">
     <my-login @onLoginSuccess="onLoginSuccess" />
-  </div>
+  </view>
 </template>
 
 <script>
